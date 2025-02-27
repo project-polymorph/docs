@@ -111,18 +111,6 @@ $general_repos
 
 </div>
 
-### 限制级存档库（在 [多元性别成人图书馆](https://cdtsf.com) 社区中维护）
-
-!!! warning "内容警告"
-
-    以下资料库包含成人内容，仅供成年人访问。
-
-<div class="grid cards" markdown>
-
-$restricted_repos
-
-</div>
-
 ---
 
 *性与性别多态计划（Project Polymorph）致力于在数字世界中构建一座知识灯塔，照亮多元性别群体的历史与未来。我们相信，知识的力量可以跨越时空，连接过去与未来，创造更加包容、多元的世界。*
