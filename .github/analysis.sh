@@ -35,4 +35,6 @@ echo "Analysis complete. Results saved in results/"
 
 python scripts/analysis/merge_index.py
 
+python scripts/generate_homepage.py
+
 echo "Merge complete. Results saved in index/combined_index.yml"

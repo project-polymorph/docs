@@ -50,8 +50,8 @@ jobs:
           git add .
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update for modify contents" && git push)
       
-      # - name: Prepare site
-      #   run: .github/site/prepare_site.sh
+      - name: Analysis site
+        run: .github/analysis.sh
 
       # - name: Create docs directory
       #   run: |

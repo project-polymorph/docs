@@ -56,14 +56,14 @@ independence:
     type: novel
   
   - name: 阉割与去势相关文档与小说（限制级）
-    description: 保存各类阉割、去势、人体改造相关文档与小说档案，涉及限制级内容。
+    description: 保存各类 eunuch 阉割、去势、人体改造相关文档与小说档案，涉及限制级内容。
     path: https://enovel.cdtsf.com
     url: https://enovel.cdtsf.com
     is_restricted: true
     type: novel
 
-  - name: TSF变身文学档案（CDBOOK短篇）
-    description: 包含伪娘、男娘、变性、TS 变身文学与跨性别相关小说（成人与限制级）的内容，主要来自 CDBOOK 网站存档。
+  - name: 社区短篇TSF变身文学档案（限制级）
+    description: 包含伪娘、男娘、变性、TSF 变身文学、CDBOOK 等相关社区创作的短篇小说。
     path: https://archive.cdtsf.com
     url: https://archive.cdtsf.com
     is_restricted: true

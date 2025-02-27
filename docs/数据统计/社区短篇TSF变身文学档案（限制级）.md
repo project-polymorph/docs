@@ -1,19 +1,19 @@
 ---
-title: Tsf变身文学档案（cdbook短篇） 数据分析
-date: 2025-02-18
+title: 社区短篇tsf变身文学档案（限制级） 数据分析
+date: 2025-02-27
 description: 内容分布的综合分析（年度、主题）
 keywords: 数据分析, 内容分布, 主题分析
 ---
 
-# Tsf变身文学档案（cdbook短篇） 数据分析
-*生成日期：2025-02-18*
+# 社区短篇tsf变身文学档案（限制级） 数据分析
+*生成日期：2025-02-27*
 
 ## 执行摘要
 本报告分析了 580 个项目的时间分布和主题分类。
 
 ## 时间分布
 
-![年度分布](TSF变身文学档案（CDBOOK短篇）_analysis_year_distribution.png)
+![年度分布](社区短篇TSF变身文学档案（限制级）_analysis_year_distribution.png)
 
 ### 年度明细
 
@@ -76,7 +76,7 @@ keywords: 数据分析, 内容分布, 主题分析
 ## 主题分析
 
 ### 标签词云
-![标签词云](TSF变身文学档案（CDBOOK短篇）_analysis_wordcloud.png)
+![标签词云](社区短篇TSF变身文学档案（限制级）_analysis_wordcloud.png)
 
 ### 热门标签
 

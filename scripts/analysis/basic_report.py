@@ -134,7 +134,7 @@ def get_report_title(input_file):
     base_name = pathlib.Path(input_file).stem
     return ' '.join(word.capitalize() for word in base_name.replace('_', ' ').split()).replace('Analysis', '数据分析')
 
-def generate_markdown_report(input_file, output_file):
+def generate_markdown_report(input_file, output_file, spec_repo_url=None):
     # Load analysis results
     results = load_analysis_results(input_file)
     
@@ -164,6 +164,17 @@ def generate_markdown_report(input_file, output_file):
         f"# {report_title}",
         f"*生成日期：{current_date}*",
         "",
+    ]
+
+    # Add spec repo link if provided
+    if spec_repo_url:
+        markdown.extend([
+            "## 数据来源",
+            f"数据来自 [规范仓库]({spec_repo_url})",
+            "",
+        ])
+
+    markdown.extend([
         "## 执行摘要",
         f"本报告分析了 {format(sum(results['year_summary'].values()), ',')} 个项目的时间分布和主题分类。",
         "",
@@ -175,7 +186,7 @@ def generate_markdown_report(input_file, output_file):
         "",
         "| 年份 | 数量 |",
         "|------|-------|",
-    ]
+    ])
     
     # Add year connections
     for year, count in sorted(results['year_summary'].items(), reverse=True):
@@ -257,6 +268,8 @@ if __name__ == "__main__":
                        help='Input analysis YAML file path')
     parser.add_argument('-o', '--output', required=True,
                        help='Output Markdown file path')
+    parser.add_argument('-s', '--spec-repo', 
+                       help='URL to the specification repository')
 
     args = parser.parse_args()
-    generate_markdown_report(args.input, args.output)
+    generate_markdown_report(args.input, args.output, args.spec_repo)
