@@ -1,10 +1,10 @@
-site_name: 多元性别中文数字图书馆文档库
+site_name: 多元性别百科
 repo_url: https://github.com/project-polymorph/docs
 edit_url: https://github.com/project-polymorph/docs/edit/main/docs/
 site_url: https://docs.transchinese.org
-site_description: '作为多元性别中文数字图书馆的重要组成部分，致力于系统性地整理、归纳与跨性别、多元性别相关的知识信息，为研究者、社群成员及关注者提供全面而精准的资源平台。'
-site_author: 性与性别多态计划
-copyright: '性与性别多态计划 2025'
+site_description: '多元性别百科致力于系统性整理与多元性别相关的知识信息，包括理论知识、历史研究、文化现象等内容，为研究者、社群成员及关注者提供开放、包容、严谨的知识平台。'
+site_author: 多元性别百科编辑团队
+copyright: '多元性别百科 2025'
 theme:
   name: material
   custom_dir: overrides
@@ -69,11 +69,9 @@ extra:
   social:
   - icon: /fontawesome/regular/envelope
     name: send me an email
-    link: mailto:admin@transchinese.org
+    link: mailto:admin@gender.wiki
   - icon: fontawesome/brands/x-twitter
-    link: https://x.com/transchineseorg
-  extra:
-    homepage: https://transchinese.org
+    link: https://x.com/genderwiki
 hooks:
   - hooks/socialmedia.py
 markdown_extensions:

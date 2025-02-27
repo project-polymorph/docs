@@ -15,7 +15,7 @@ download:
 	python .github/scripts/toc/independence_info.py && \
 	mkdir -p results/ && cp independence_repo.json results/independence_repo.json && \
 	python scripts/analysis/download.py
-	mkdir -p docs/数据统计
+	mkdir -p docs/项目运营/数据统计
 	@echo "Download complete."
 
 process-indices:
@@ -27,7 +27,7 @@ process-indices:
 			-o "results/$${name}_analysis.yml"; \
 		python scripts/analysis/basic_report.py \
 			-i "results/$${name}_analysis.yml" \
-			-o "docs/数据统计/$${name}.md"; \
+			-o "docs/项目运营/数据统计/$${name}.md"; \
 	done
 	@echo "Analysis complete. Results saved in results/"
 
@@ -60,5 +60,5 @@ clean:
 	rm -f docs/文档/编年录/.policy_index_state.json
 	rm -f docs/文档/编年录/.total_index_state.json
 	rm -rf results/*
-	rm -rf docs/数据统计/*
+	rm -rf docs/项目运营/数据统计/*
 
