@@ -4,15 +4,16 @@
 set -e
 export OPENAI_TEMPERATURE=0.7
 
+# Create results directory if it doesn't exist
+mkdir -p results
+mkdir -p index/
+
 python .github/scripts/toc/independence_info.py
 cp independence_repo.json results/independence_repo.json
 
 python scripts/analysis/download.py
 
 echo "Download complete."
-
-# Create results directory if it doesn't exist
-mkdir -p results
 
 # Process each search_index.yml file
 for index_file in index/*/search_index.yml; do
