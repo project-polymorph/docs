@@ -10,6 +10,7 @@ import subprocess
 import sys
 import requests
 import tempfile
+import json
 
 def load_analysis_results(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -134,7 +135,41 @@ def get_report_title(input_file):
     base_name = pathlib.Path(input_file).stem
     return ' '.join(word.capitalize() for word in base_name.replace('_', ' ').split()).replace('Analysis', '数据分析')
 
-def generate_markdown_report(input_file, output_file, spec_repo_url=None):
+def get_spec_repo_info(analysis_name):
+    try:
+        with open('results/independence_repo.json', 'r', encoding='utf-8') as f:
+            repos = json.load(f)
+            # Convert analysis name to match repository name format
+            analysis_name = analysis_name.replace('_analysis', '')
+            
+            # Try to find matching repository
+            for repo in repos:
+                # Skip restricted repos
+                if repo.get('is_restricted', False):
+                    continue
+                    
+                # Check if repository name contains our analysis name or vice versa
+                if (analysis_name.lower() in repo['name'].lower() or 
+                    repo['name'].lower() in analysis_name.lower()):
+                    return {
+                        'name': repo['name'],
+                        'url': repo['url'],
+                        'description': repo.get('description', '')
+                    }
+            
+            # If no match found, return the first non-restricted repo
+            for repo in repos:
+                if not repo.get('is_restricted', False):
+                    return {
+                        'name': repo['name'],
+                        'url': repo['url'],
+                        'description': repo.get('description', '')
+                    }
+    except Exception as e:
+        print(f"Warning: Could not read spec repo info from independence_repo.json - {str(e)}")
+        return None
+
+def generate_markdown_report(input_file, output_file, spec_repo_url=None, spec_repo_name=None, spec_repo_desc=None):
     # Load analysis results
     results = load_analysis_results(input_file)
     
@@ -167,12 +202,17 @@ def generate_markdown_report(input_file, output_file, spec_repo_url=None):
     ]
 
     # Add spec repo link if provided
-    if spec_repo_url:
+    if spec_repo_url and spec_repo_name:
         markdown.extend([
             "## 数据来源",
-            f"数据来自 [规范仓库]({spec_repo_url})",
-            "",
+            f"数据来自 [{spec_repo_name}]({spec_repo_url})",
         ])
+        if spec_repo_desc:
+            markdown.extend([
+                "",
+                spec_repo_desc,
+            ])
+        markdown.append("")
 
     markdown.extend([
         "## 执行摘要",
@@ -238,7 +278,7 @@ def generate_markdown_report(input_file, output_file, spec_repo_url=None):
     markdown.append(tags_str)
     markdown.extend([
         "",
-        "<details>",
+        "<details markdown>",
         "<summary>查看更多标签</summary>",
         "",
     ])
@@ -269,7 +309,30 @@ if __name__ == "__main__":
     parser.add_argument('-o', '--output', required=True,
                        help='Output Markdown file path')
     parser.add_argument('-s', '--spec-repo', 
-                       help='URL to the specification repository')
+                       help='URL to the specification repository (overrides the URL from independence_repo.json)')
+    parser.add_argument('-n', '--spec-name',
+                       help='Name of the specification repository (overrides the name from independence_repo.json)')
+    parser.add_argument('-d', '--spec-desc',
+                       help='Description of the specification repository (overrides the description from independence_repo.json)')
 
     args = parser.parse_args()
-    generate_markdown_report(args.input, args.output, args.spec_repo)
+    
+    # Use command line arguments if provided, otherwise try to read from independence_repo.json
+    if args.spec_repo and args.spec_name:
+        spec_repo_info = {
+            'url': args.spec_repo, 
+            'name': args.spec_name,
+            'description': args.spec_desc
+        }
+    else:
+        # Get the base name of the input file for matching
+        input_base_name = pathlib.Path(args.input).stem
+        spec_repo_info = get_spec_repo_info(input_base_name)
+    
+    generate_markdown_report(
+        args.input, 
+        args.output, 
+        spec_repo_info['url'] if spec_repo_info else None,
+        spec_repo_info['name'] if spec_repo_info else None,
+        spec_repo_info['description'] if spec_repo_info else None
+    )
