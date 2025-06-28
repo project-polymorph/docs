@@ -1,0 +1,101 @@
+site_name: 多元性别中文数字图书馆文档库
+repo_url: https://github.com/project-polymorph/docs
+edit_url: https://github.com/project-polymorph/docs/edit/main/docs/
+site_url: https://docs.transchinese.org
+site_description: '作为多元性别中文数字图书馆的重要组成部分，致力于系统性地整理、归纳与跨性别、多元性别相关的知识信息，为研究者、社群成员及关注者提供全面而精准的资源平台。'
+site_author: 性与性别多态计划
+copyright: '性与性别多态计划 2025'
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  logo: imgs/logo.png
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    #- content.action.edit
+    #- content.action.view
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # - navigation.prune
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - content.tabs.link
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: white
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+plugins:
+  - search
+  # - blog
+  - social:
+      cards_layout_options:
+        font_family: Noto Sans SC
+  - rss:
+      match_path: ".*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
+  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+extra:
+  analytics:
+    provider: google
+    property: G-NLEYWPXZ47
+  social:
+  - icon: /fontawesome/regular/envelope
+    name: send me an email
+    link: mailto:admin@transchinese.org
+  - icon: fontawesome/brands/x-twitter
+    link: https://x.com/transchineseorg
+  extra:
+    homepage: https://transchinese.org
+hooks:
+  - hooks/socialmedia.py
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true

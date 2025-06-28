@@ -1,0 +1,79 @@
+independence:
+  - name: 跨性别与多元性别新闻网页档案库
+    description: 保存各类跨性别与多元性别相关的新闻网页存档和相关图片。
+    path: https://news.transchinese.org/
+    url: https://news.transchinese.org/
+    is_restricted: false
+    type: resource
+
+  - name: 跨性别与多元性别文档档案库
+    description: 保存各类资料、书籍、论文、报告、演示文稿等与跨性别和多元性别相关的独立文件。
+    path: https://digital.transchinese.org/
+    url: https://digital.transchinese.org/
+    is_restricted: false
+    type: resource
+
+  - name: 伪娘与性转相关漫画存档库
+    description: 保存各类性转相关漫画存档和相关图片。
+    path: https://comic.transchinese.org/
+    url: https://comic.transchinese.org/
+    is_restricted: false
+    type: comic
+
+  - name: 变身文学与小说存档库一（非限制级，未分类）
+    description: 保存各类变身、伪娘、性转文学与小说存档，主要关注剧情，按短篇长篇分类。
+    path: https://novel.transchinese.org
+    url: https://novel.transchinese.org
+    is_restricted: false
+    type: novel
+
+  - name: 变身文学与小说存档库二（非限制级，变百/变嫁）
+    description: 保存各类变身、伪娘、性转文学与小说存档，按变百或变嫁内容分类，主要关注剧情。可能较老。
+    path: https://xnovel.transchinese.org
+    url: https://xnovel.transchinese.org
+    is_restricted: false
+    type: novel
+
+  - name: 变身文学与小说存档库三（非限制级，持续更新）
+    description: 保存各类 CDTS、变身、伪娘、性转文学与变身小说存档，持续更新中。
+    path: https://unovel.transchinese.org
+    url: https://unovel.transchinese.org
+    is_restricted: false
+    type: novel
+
+  - name: 成人变身文学与小说存档库（限制级）
+    description: 保存各类 CDTS、变身、伪娘、性转文学与小说存档，可能涉及限制级内容。
+    path: https://snovel.cdtsf.com
+    url: https://snovel.cdtsf.com
+    is_restricted: true
+    type: novel
+
+  - name: 扶她与双性相关文档小说（成人与限制级）
+    description: 包含扶她与双性人相关文档小说（成人与限制级）的内容。
+    path: https://fnovel.cdtsf.com
+    url: https://fnovel.cdtsf.com
+    is_restricted: true
+    type: novel
+  
+  - name: 阉割与去势相关文档与小说（限制级）
+    description: 保存各类 eunuch 阉割、去势、人体改造相关文档与小说档案，涉及限制级内容。
+    path: https://enovel.cdtsf.com
+    url: https://enovel.cdtsf.com
+    is_restricted: true
+    type: novel
+
+  - name: 社区短篇TSF变身文学档案（限制级）
+    description: 包含伪娘、男娘、变性、TSF 变身文学、CDBOOK 等相关社区创作的短篇小说。
+    path: https://archive.cdtsf.com
+    url: https://archive.cdtsf.com
+    is_restricted: true
+    type: novel
+
+ignore:
+  - '.*\.github.*'
+  - '.*\.git.*'
+  - '.*CODE_OF_CONDUCT\.md.*'
+  - '.*LICENSE.*'
+  - 'digital\.yml'
+  - 'page\.yml'
+  - 'search_index\.yml'
